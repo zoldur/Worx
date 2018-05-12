@@ -60,6 +60,7 @@ systemctl is-enabled Worx #To check if Worx2 service is enabled on boot
 
 Any donation is highly appreciated
 
+**WORX**: WkYKuTKs6aVcHSNDvSqUbVvGP63s8ZfkNd  
 **BTC**: 3MQLEcHXVvxpmwbB811qiC1c6g21ZKa7Jh  
 **ETH**: 0x26B9dDa0616FE0759273D651e77Fe7dd7751E01E  
 **LTC**: LNZpK4rCd1JVSB3rGKTAnTkudV9So9zexB  
