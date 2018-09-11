@@ -6,7 +6,7 @@ CONFIGFOLDER='/root/.worx'
 COIN_DAEMON='worxd'
 COIN_CLI='worx-cli'
 COIN_PATH='/usr/local/bin/'
-COIN_TGZ='https://github.com/worxcoin/worx/releases/download/V1.1.0.0/worx-1.1.0-x86_64-linux-gnu.tar.gz'
+COIN_TGZ='https://github.com/zoldur/Worx/releases/download/v1.2.0.0/worx.tgz'
 COIN_ZIP=$(echo $COIN_TGZ | awk -F'/' '{print $NF}')
 COIN_NAME='Worx'
 COIN_PORT=3300
@@ -25,10 +25,9 @@ function download_node() {
   cd $TMP_FOLDER >/dev/null 2>&1
   wget -q $COIN_TGZ
   compile_error
-  tar xvzf $COIN_ZIP --strip 1 >/dev/null 2>&1
-  cd bin
+  tar xvzf $COIN_ZIP >/dev/null 2>&1
   cp $COIN_DAEMON $COIN_CLI $COIN_PATH
-  cd ~ >/dev/null 2>&1
+  cd - >/dev/null 2>&1
   rm -rf $TMP_FOLDER >/dev/null 2>&1
   clear
 }
@@ -118,20 +117,11 @@ function update_config() {
   sed -i 's/daemon=1/daemon=0/' $CONFIGFOLDER/$CONFIG_FILE
   cat << EOF >> $CONFIGFOLDER/$CONFIG_FILE
 logintimestamps=1
-maxconnections=256
+maxconnections=16
 #bind=$NODEIP
 masternode=1
 externalip=$NODEIP:$COIN_PORT
 masternodeprivkey=$COINKEY
-addnode=209.240.237.60:29328
-addnode=23.95.226.107:29328
-addnode=54.37.215.39:29328
-addnode=45.64.254.98:3300
-addnode=36.82.98.131:35403
-addnode=149.28.132.154:33250
-addnode=45.77.50.235:36236
-addnode=149.28.167.36:3300
-addnode=45.76.126.88:3300
 EOF
 }
 
